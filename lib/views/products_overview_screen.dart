@@ -25,6 +25,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text("Minha Loja"),
         actions: [
           PopupMenuButton(

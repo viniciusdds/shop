@@ -12,6 +12,7 @@ class CartScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text('Carrinho'),
       ),
       body: Column(
