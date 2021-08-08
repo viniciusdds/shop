@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:shop/utils/constants.dart';
 
 class Product with ChangeNotifier {
   
@@ -30,7 +31,7 @@ class Product with ChangeNotifier {
     _toggleFavorite();
 
     try{
-      final url = 'https://flutter-cod3r-2cf72-default-rtdb.firebaseio.com/products/$id.json';
+      final url = '${Constants.BASE_API_URL}/products/$id.json';
       final response = await http.patch(
           url,
           body: json.encode({

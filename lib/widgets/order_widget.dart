@@ -17,7 +17,6 @@ class _OrderWidgetState extends State<OrderWidget> {
 
   @override
   Widget build(BuildContext context) {
-
     return Card(
       margin: EdgeInsets.all(10),
       child: Column(
@@ -36,40 +35,41 @@ class _OrderWidgetState extends State<OrderWidget> {
               },
             ),
           ),
-          Visibility(
-            visible: _expanded,
-            child: Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 4
-              ),
-              height: (widget.order.products.length * 25.0) + 10,
-              child: ListView(
-                children: widget.order.products.map((product){
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        product.title,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold
-                        ),
-                      ),
-                      Text(
-                        '${product.quantity} x R\$ ${product.price}',
-                        style: TextStyle(
+          if(_expanded)
+            Visibility(
+              visible: _expanded,
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 4
+                ),
+                height: (widget.order.products.length * 25.0) + 10,
+                child: ListView(
+                  children: widget.order.products.map((product){
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          product.title,
+                          style: TextStyle(
                             fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey
+                            fontWeight: FontWeight.bold
+                          ),
                         ),
-                      )
-                    ],
-                  );
-                }).toList(),
+                        Text(
+                          '${product.quantity} x R\$ ${product.price}',
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey
+                          ),
+                        )
+                      ],
+                    );
+                  }).toList(),
+                ),
               ),
-            ),
-          )
+            )
         ],
       )
     );
