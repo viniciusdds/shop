@@ -30,6 +30,7 @@ class Products with ChangeNotifier {
     final response = await http.get("$_baseUrl.json?auth=$_token");
     Map<String, dynamic> data = json.decode(response.body);
 
+    // token criado
     final favResponse = await http.get("${Constants.BASE_API_URL}/userFavorites/$_userId.json?auth=$_token");
     final favMap = json.decode(favResponse.body);
 
