@@ -8,32 +8,33 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Stack(
-             children: [
-               Container(
-                 decoration: BoxDecoration(
-                   gradient: LinearGradient(
-                     colors: [
-                       Color.fromRGBO(215, 117, 255, 0.5),
-                       Color.fromRGBO(255, 188, 117, 0.9),
-                     ],
-                     begin: Alignment.topLeft,
-                     end: Alignment.bottomRight,
-                   )
-                 ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Stack(
+           children: [
+             Container(
+               decoration: BoxDecoration(
+                 gradient: LinearGradient(
+                   colors: [
+                     Color.fromRGBO(215, 117, 255, 0.5),
+                     Color.fromRGBO(255, 188, 117, 0.9),
+                   ],
+                   begin: Alignment.topLeft,
+                   end: Alignment.bottomRight,
+                 )
                ),
-               Container(
-                 width: double.infinity,
-                 child: Column(
-                   mainAxisAlignment: MainAxisAlignment.center,
-                   crossAxisAlignment: CrossAxisAlignment.center,
-                   children: [
-                     Flexible(
-                       child: Container(
+             ),
+             Center(
+               child: SingleChildScrollView(
+                 child: Container(
+                   width: double.infinity,
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.center,
+                     crossAxisAlignment: CrossAxisAlignment.center,
+                     children: [
+                       SizedBox(height: 45),
+                       Container(
                          margin: EdgeInsets.only(bottom: 20.0),
                          padding: EdgeInsets.symmetric(
                            vertical: 8,
@@ -60,13 +61,13 @@ class AuthScreen extends StatelessWidget {
                            ),
                          ),
                        ),
-                     ),
-                     Expanded(child: AuthCard()),
-                   ],
+                       AuthCard(),
+                     ],
+                   ),
                  ),
                ),
-             ],
-          ),
+             ),
+           ],
         ),
       ),
     );

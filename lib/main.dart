@@ -50,7 +50,13 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.purple,
           accentColor: Colors.deepOrange,
-          fontFamily: 'Lato'
+          fontFamily: 'Lato',
+          pageTransitionsTheme: PageTransitionsTheme(
+            builders: {
+              TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+              TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+            }
+          )
         ),
         //home: ProductsOverviewScreen(),
         routes: {
